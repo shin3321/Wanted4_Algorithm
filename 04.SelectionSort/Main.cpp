@@ -36,7 +36,6 @@ void SelectionSort(int* array, int length)
 	}
 }
 
-
 //배열 출력 함수
 void PrintArray(int* array, int length)
 {
@@ -49,6 +48,7 @@ void PrintArray(int* array, int length)
 		}
 	}
 }
+
 int main()
 {
 	// 자료 집합.

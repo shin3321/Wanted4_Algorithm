@@ -23,7 +23,7 @@ bool Isless(int left, int right)
 
 
 //버블 정렬 함수
-//비교 조건 확인 로직을 Comparer에게 맡김 -> 위임
+//비교 조건 확인 로직을 Comparer(외부)에게 맡김 -> 위임
 //Delegate(델리게이트)
 void BubbleSort(int* array, int length, Comparer comparer)
 {

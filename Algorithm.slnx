@@ -6,4 +6,5 @@
   <Project Path="02.Random/02.Random.vcxproj" Id="e41b2d7c-a5d7-4f75-883c-dbd14efe3646" />
   <Project Path="03.BubbleSort/03.BubbleSort.vcxproj" Id="4694585e-20ed-46f7-82f4-61883add7989" />
   <Project Path="04.SelectionSort/04.SelectionSort.vcxproj" Id="098b9fb7-ba71-4214-87c9-1eaa8880d164" />
+  <Project Path="05.InsertionSort/05.InsertionSort.vcxproj" Id="158d3982-ad6c-432d-a8d4-a9f7ab6e2064" />
 </Solution>
