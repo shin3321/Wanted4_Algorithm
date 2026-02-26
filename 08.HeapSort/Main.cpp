@@ -1,74 +1,116 @@
 #include <iostream>
 
-// ë°°ì—´ì„ íž™ìœ¼ë¡œ ë§Œë“œëŠ” í•¨ìˆ˜
-// array: ì •ë ¬ ì¤‘ì¸ ë°°ì—´
-// length: ë°°ì—´ì— í•­ë³µ ìˆ˜
-// index: í˜„ìž¬ ì²˜ë¦¬ ì¤‘ì¸ ì¸ë±ìŠ¤
+// ¹è¿­À» ÈüÀ¸·Î ¸¸µå´Â ÇÔ¼ö
+// array: Á¤·Ä ÁßÀÎ ¹è¿­
+// length: ¹è¿­¿¡ Ç×º¹ ¼ö
+// index: ÇöÀç Ã³¸® ÁßÀÎ ÀÎµ¦½º
 void Heapify(int* array, int length, int index)
 {
-	// íž™ êµ¬ì •ì„ ì™„ë£Œí•  ë•Œê¹Œì§€ ë°˜ë´…
+	// Èü ±¸Á¤À» ¿Ï·áÇÒ ¶§±îÁö ¹Ýº¾
 	while (true)
 	{
-		// ìµœëŒ€íž™
+		// ÃÖ´ëÈü
 		int largest = index;
 
-		// ìžì† ì¸ë±ìŠ¤ êµ¬í•˜ê¸°
-		// ì™¼ìª½ ìžì†: 2n+1
+		//ºÎ¸ð ³ëµå°¡ ÀÚ¼Õ ³ëµåº¸´Ù Ä¿¾ß ÇÔ
+		// ÀÚ¼Õ ÀÎµ¦½º ±¸ÇÏ±â
+		// ¿ÞÂÊ ÀÚ¼Õ: 2n+1
 		int leftChild = 2 * index + 1;
-		// ì˜¤ë¥¸ìª½ ìžì†: 2n+2
+		// ¿À¸¥ÂÊ ÀÚ¼Õ: 2n+2
 		int rightChild = 2 * index + 2;
 
-		// ë” í° ê°’ ì°¾ê¸° (+ ìžì† ì¸ë±ìŠ¤ ì¡´ìž¬ ì—¬ë¶€ í™•ì¸
+		// ´õ Å« °ª Ã£±â (+ ÀÚ¼Õ ÀÎµ¦½º Á¸Àç ¿©ºÎ È®ÀÎ
 		if (leftChild < length && array[leftChild] > array[largest])
 		{
 			largest = leftChild;
 		}
-		// ë” í° ê°’ ì°¾ê¸° (+ ìžì† ì¸ë±ìŠ¤ ì¡´ìž¬ ì—¬ë¶€ í™•ì¸
+		// ´õ Å« °ª Ã£±â (+ ÀÚ¼Õ ÀÎµ¦½º Á¸Àç ¿©ºÎ È®ÀÎ
 		if (rightChild < length && array[rightChild] > array[largest])
 		{
 			largest = rightChild;
 		}
 
-		// í˜„ìž¬ ë…¸ë“œê°€ ê°€ìž¥ í¬ë©´ ì¢…ë£Œ
-		// íž™ êµ¬ì¡°ê°€ ìœ ì§€ëœ ê²ƒì´ê¸° ë•Œë¬¸
+		// ÇöÀç ³ëµå°¡ °¡Àå Å©¸é Á¾·á
+		// Èü ±¸Á¶°¡ À¯ÁöµÈ °ÍÀÌ±â ¶§¹®
 		if (largest == index)
 		{
 			break;
 		}
 
-		// í˜„ìž¬ ë…¸ë“œì™€ ìžì† ë…¸ë“œ(ê°€ìž¥ í° ê°’ì„ ê°€ì§€ëŠ”) êµí™˜
+		// ÇöÀç ³ëµå¿Í ÀÚ¼Õ ³ëµå(°¡Àå Å« °ªÀ» °¡Áö´Â) ±³È¯
 		std::swap<int>(array[index], array[largest]);
 
-		//largestë¥¼ indexë¡œ ì—…ë°ì´ìœ¼,
+		//largest¸¦ index·Î ¾÷µ¥ÀÌÆ®,
 		index = largest;
 	}
 }
 
-
-// íž™ ì •ë ¬ í•¨ìˆ˜
+// Èü Á¤·Ä ÇÔ¼ö
 void HeapSort(int* array, int length)
 {
-	// íž™ êµ¬ì¡°ë¡œ ë³€í™˜
+	// Èü ±¸Á¶·Î º¯È¯
 	for (int i = length / 2 - 1; i >= 0; --i)
 	{
 		Heapify(array, length, i);
 	}
 
-	// íž™ ì •ë ¬
+	// Èü Á¤·Ä
 	for (int i = length - 1; i > 0; --i)
 	{
-		// 0ì´ ë£¨íŠ¸ë…¸ë“œì´ê¸° ë•Œë¬¸ì— forë¬¸ ì•ˆ ëŒì•„ë„ ë¨
-		// ë£¨íŠ¸ ë…¸ë“œì™€ ë§ˆì§€ë§‰ ë…¸ë“œ(í˜„ìž¬ ë…¸ë“œ)ë¥¼ êµí™˜
+		// 0ÀÌ ·çÆ®³ëµåÀÌ±â ¶§¹®¿¡ for¹® ¾È µ¹¾Æµµ µÊ
+		// ·çÆ® ³ëµå¿Í ¸¶Áö¸· ³ëµå(ÇöÀç ³ëµå)¸¦ ±³È¯
 		std::swap<int>(array[0], array[i]);
 
-		// íž™ êµ¬ì¡°ë¥¼ ìœ ì§€í•˜ê¸° ìœ„í•´ ë£¨íŠ¸ ë…¸ë“œë¶€í„° ë‹¤ì‹œ íž™ìœ¼ë¡œ ë§Œë“¤ê¸°
-		Heapify(array, ix, 0);
+		// Èü ±¸Á¶¸¦ À¯ÁöÇÏ±â À§ÇØ ·çÆ® ³ëµåºÎÅÍ ´Ù½Ã ÈüÀ¸·Î ¸¸µé±â
+		Heapify(array, i, 0);
 	}
+}
+
+//¹è¿­ Ãâ·Â ÇÔ¼ö
+void PrintArray(int* array, int length)
+{
+	for (int i = 0; i < length; ++i)
+	{
+		std::cout << array[i];
+		if (i < length - 1)
+		{
+			std::cout << ", ";
+		}
+	}
+	std::cout << "\n";
 }
 
 int main()
 {
-	// ìžë£Œ ì§‘í•©.
-	int array[] = { 5, 2, 8, 4, 1, 7, 3, 6, 9, 10, 15, 13, 14, 12, 17, 16 };
+	// ÀÚ·á ÁýÇÕ.
+	//int array[] = { 5, 2, 8, 4, 1, 7, 3, 6, 9, 10, 15, 13, 14, 12, 17, 16 };
+	
+	int array[] =
+	{
+		1, 58, 10, 20, 56, 63, 73, 5, 28, 37,
+		80, 61, 82, 45, 11, 66, 83, 59, 22, 64,
+		52, 89, 94, 76, 44, 40, 75, 2, 23, 57,
+		92, 8, 41, 96, 15, 84, 35, 69, 54, 47,
+		90, 24, 43, 74, 34, 85, 72, 95, 18, 17,
+		98, 9, 29, 53, 27, 79, 39, 51, 31, 16,
+		6, 97, 26, 100, 21, 48, 33, 60, 91, 19,
+		30, 13, 71, 78, 87, 25, 81, 4, 42, 93,
+		49, 12, 14, 7, 62, 77, 38, 99, 88, 50,
+		32, 46, 70, 3, 86, 68, 36, 67, 55, 65
+	};
 
+	//¹è¿­ »çÀÌÁî ±¸ÇÏ±â
+	//int length = ARRAYSIZE(array);
+	int length = _countof(array);
+
+	//Ãâ·Â
+	std::cout << "Á¤·Ä Àü ¹è¿­: ";
+	PrintArray(array, length);
+
+	//Á¤·Ä
+	HeapSort(array, length);
+
+	//Ãâ·Â
+	std::cout << "Á¤·Ä ÈÄ ¹è¿­: ";
+	PrintArray(array, length);
 }
