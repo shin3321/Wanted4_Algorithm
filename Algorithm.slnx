@@ -9,4 +9,5 @@
   <Project Path="05.InsertionSort/05.InsertionSort.vcxproj" Id="158d3982-ad6c-432d-a8d4-a9f7ab6e2064" />
   <Project Path="06.QuickSort/06.QuickSort.vcxproj" Id="e49bf296-9644-4205-913c-ea73557ce8c1" />
   <Project Path="07.MergeSort/07.MergeSort.vcxproj" Id="07da043e-4f0c-4870-9d45-7904d0320dff" />
+  <Project Path="08.HeapSort/08.HeapSort.vcxproj" Id="679c4791-e7d7-4215-867b-a2947a76015d" />
 </Solution>
