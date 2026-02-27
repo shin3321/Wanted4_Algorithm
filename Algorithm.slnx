@@ -10,4 +10,6 @@
   <Project Path="06.QuickSort/06.QuickSort.vcxproj" Id="e49bf296-9644-4205-913c-ea73557ce8c1" />
   <Project Path="07.MergeSort/07.MergeSort.vcxproj" Id="07da043e-4f0c-4870-9d45-7904d0320dff" />
   <Project Path="08.HeapSort/08.HeapSort.vcxproj" Id="679c4791-e7d7-4215-867b-a2947a76015d" />
+  <Project Path="09.RedBlackTree/09.RedBlackTree.vcxproj" Id="68fcb6aa-6aa3-4747-90eb-7a6cdcc302d4" />
+  <Project Path="10.AstarPathFinding/10.AstarPathFinding.vcxproj" Id="940c6f01-71c9-4985-ab06-616fb9c1afc8" />
 </Solution>
